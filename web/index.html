@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Achieved</title>
+    <title>Actions</title>
 
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400" rel="stylesheet">
 
@@ -12,25 +12,31 @@
           href="images/icon.png">
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
 
     <link rel="stylesheet" type="text/css" href="css/index.css">
     <link rel="stylesheet" type="text/css" href="css/media.css">
-
-    <script src="js/index.js"></script>
 
 </head>
 
 <body>
 
 <main>
-    <div id="card">
-        <div class="like"></div>
-        <div class="dislike"></div>
-        <div class="skip"></div>
-        <div class="done"></div>
+    <div id="buttons">
+        <div id="done">DONE</div>
+        <div id="like">LIKE</div>
+        <div id="dislike"><span>DISLIKE</span></div>
+        <div id="skip"><span>SKIP</span></div>
+    </div>
+    <div id="card" ondblclick="toggleFullScreen()">
+<!--        <div id="id">0</div>-->
+        <div id="title">Пустая карта</div>
+        <div id="text">Много текста в пустой карте. Еще больше текста в этой карте, разного.</div>
     </div>
 </main>
 
 </body>
+
+<script src="js/index.js"></script>
 
 </html>

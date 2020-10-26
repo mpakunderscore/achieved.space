@@ -3,20 +3,33 @@ html, body {
     padding: 0;
 
     font-family: 'Open Sans', sans-serif;
-    font-weight: 300;
+    font-weight: 400;
+    font-size: 26px;
     /*letter-spacing: 1px;*/
     /*line-height: 24px;*/
 
+
     height: 100%;
+    line-height: 0.8;
+    letter-spacing: 4px;
+
+    --color-red: #bb4430;
+    --color-green: #47E5BC;
+    --color-blue: #028090;
+    --color-no: #393E41;
+
+    user-select: none;
 }
 
 body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-bottom: 100px;
+    /*padding-bottom: 100px;*/
+    /*top: 0;*/
     height: 100%;
 
+    color: white;
     background-color: ghostwhite;
 }
 
@@ -27,47 +40,95 @@ a {
 
 a:hover {
     /*color: #35a8d8;*/
-    color: rgba(20, 137, 181, 0.76);
+    /*color: rgba(20, 137, 181, 0.76);*/
 }
 
 main {
     width: 100%;
     height: 100%;
-    background-color: rgba(144, 238, 144, 0.44);
+    /*background-color: rgba(144, 238, 144, 0.44);*/
 
     display: flex;
     flex-direction: row;
 }
 
-#card {
+#buttons {
     width: 100%;
     height: 100%;
+
+    display: grid;
+    grid-template-columns: 50% 50%;
+
+    opacity: 0.5;
 }
 
-#dislike {
-    width: 50%;
-    height: 50%;
-
-    background-color: red;
+#buttons div {
+    padding: 20px;
 }
 
 #like {
-    width: 50%;
-    height: 50%;
-
-    background-color: lawngreen;
+    text-align: end;
+    background-color: var(--color-green);
 }
 
-#skip {
-    width: 50%;
-    height: 50%;
-
-    background-color: yellow;
+#like span {
 }
 
 #done {
-    width: 50%;
-    height: 50%;
+    background-color: var(--color-blue);
+    /*text-align: right;*/
+}
 
-    background-color: orange;
+#dislike {
+    display: flex;
+    background-color: var(--color-red);
+}
+
+#dislike span {
+    align-self: flex-end;
+}
+
+#skip {
+    display: flex;
+    background-color: var(--color-no);
+}
+
+#skip span {
+    width: 100%;
+    text-align: end;
+    align-self: flex-end;
+}
+
+#card {
+    position: absolute;
+    /*width: 50%;*/
+    /*height: 50%;*/
+    left: 10%;
+    right: 10%;
+    bottom: 10%;
+    top: 10%;
+
+    font-size: 22px;
+    font-weight: 300;
+    padding: 20px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+
+    line-height: normal;
+    letter-spacing: normal;
+
+    color: black;
+    background-color: ghostwhite;
+    border-radius: 10px;
+
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.24), 0 10px 10px rgba(0, 0, 0, 0.20);
+}
+
+#card #title {
+    font-size: 26px;
+    font-weight: 400;
+    padding-bottom: 20px;
 }

@@ -1,56 +1,53 @@
-function on() {
-    document.querySelector("#outside").style.backgroundColor = "#3dc7ff";
+function done() {
+    console.log('done')
 }
 
-function off() {
-    document.querySelector("#outside").style.backgroundColor = "black";
+function like() {
+    console.log('like')
 }
 
-function showDescription(block) {
-    // console.log(block)
-    block.classList.add("stick");
+function dislike() {
+    console.log('dislike')
 }
 
-function openDescription(block) {
-    block = block.nextSibling.nextSibling;
-    console.log(block)
-    block.style.height = "auto";
+function skip() {
+    console.log('skip')
+    getNextCard()
 }
 
-function load(href) {
+document.getElementById('done').addEventListener('touchstart', done, false);
+document.getElementById('like').addEventListener('touchstart', like, false);
+document.getElementById('dislike').addEventListener('touchstart', dislike, false);
+document.getElementById('skip').addEventListener('touchstart', skip, false);
 
-    let request = new XMLHttpRequest();
-    request.open("GET", href, false);
-    request.send();
-    return request.responseText;
+function toggleFullScreen() {
+    if (!document.fullscreenElement) {
+        document.documentElement.requestFullscreen().then();
+    } else {
+        if (document.exitFullscreen) {
+            document.exitFullscreen().then();
+        }
+    }
 }
 
-function field(event) {
+let cards = []
 
-    // let field = event.target;
-
-    // if (field.textContent.startsWith("Project "))
-    //     field.textContent = "";
-
-    // console.log("field");
-    // console.log(field.textContent);
-
-    // field.textContent = "";
+async function get(url) {
+    let response = await fetch(url);
+    if (response.ok) {
+        return await response.json();
+    } else {
+        // console.error(response)
+    }
 }
 
-function submit() {
+get('cards').then(cardsArray => {
+    cards = cardsArray
+})
 
-    let fields = document.getElementById("idea").getElementsByClassName("field");
-
-    console.log(fields[0].value)
-    console.log(fields[1].innerText)
-    // console.log(fields[2].value)
-
-    sendIdea(fields[0].value, fields[1].innerText);
-
-    fields[0].value = "";
-    fields[1].innerHTML = ">&nbsp;";
-    fields[2].value = "";
-
-
+function getNextCard() {
+    let card = cards[Math.floor(Math.random() * cards.length)];
+    // document.getElementById('title').innerText = card.id
+    document.getElementById('title').innerText = card.title
+    document.getElementById('text').innerText = card.text
 }
