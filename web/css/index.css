@@ -108,7 +108,7 @@ main {
     bottom: 10%;
     top: 10%;
 
-    font-size: 22px;
+    font-size: 20px;
     font-weight: 300;
     padding: 20px;
 
@@ -125,10 +125,12 @@ main {
     border-radius: 10px;
 
     box-shadow: 0 14px 28px rgba(0, 0, 0, 0.24), 0 10px 10px rgba(0, 0, 0, 0.20);
+
+    pointer-events: none;
 }
 
 #card #title {
-    font-size: 26px;
+    font-size: 24px;
     font-weight: 400;
     padding-bottom: 20px;
 }

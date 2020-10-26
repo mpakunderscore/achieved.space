@@ -1,13 +1,16 @@
 function done() {
     console.log('done')
+    getNextCard()
 }
 
 function like() {
     console.log('like')
+    getNextCard()
 }
 
 function dislike() {
     console.log('dislike')
+    getNextCard()
 }
 
 function skip() {
@@ -45,9 +48,15 @@ get('cards').then(cardsArray => {
     cards = cardsArray
 })
 
+let title = document.getElementById('title')
+let text = document.getElementById('text')
+
 function getNextCard() {
     let card = cards[Math.floor(Math.random() * cards.length)];
     // document.getElementById('title').innerText = card.id
-    document.getElementById('title').innerText = card.title
-    document.getElementById('text').innerText = card.text
+    title.innerText = card.title
+    if (card.text)
+        text.innerText = card.text
+    else
+        text.innerText = ''
 }
