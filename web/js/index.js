@@ -56,6 +56,7 @@ get('cards').then(cardsArray => {
     console.log(cards)
 })
 
+let cardElement = document.getElementById('card')
 let title = document.getElementById('title')
 let text = document.getElementById('text')
 

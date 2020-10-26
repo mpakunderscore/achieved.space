@@ -125,6 +125,7 @@ main {
     letter-spacing: normal;
 
     color: black;
+    transition: 1s color;
     background-color: ghostwhite;
     border-radius: 10px;
 

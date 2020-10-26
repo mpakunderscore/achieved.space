@@ -7,28 +7,41 @@ let server = require('http').Server(app);
 const port = process.env.PORT || 3030;
 server.listen(port);
 
-let actions = [
-    {id: 0, title: 'Погулять', text: 'Свежий воздух и новая картинка перед глазами'},
-    {id: 1, title: 'Приготовить еды', text: ''},
-    {id: 2, title: 'Почитать книгу', text: 'Могу предложить вот {object}'},
-    {id: 3, title: 'Сходить в зал'},
-    {id: 3, title: 'Отжаться 25 раз'},
-    {id: 3, title: 'Покататься на велосипеде'},
-    {id: 3, title: 'Сходить в бассейн', text: 'Ближайший можно найти вот тут {map=Бассейн}'},
-    {id: 4, title: 'Написать другу'},
-    {id: 4, title: 'Позвонить родителям'},
-    {id: 4, title: 'Глубоко подышать'},
-    {id: 4, title: 'Послушать музыку'},
-    {id: 5, title: 'Помыть часть посуды', text: ''},
-    {id: 5, title: 'Помыть всю посуду', text: ''},
-    {id: 5, title: 'Вытереть стол', text: ''},
-    {id: 5, title: 'Вытереть пол', text: ''},
-    {id: 5, title: 'Удалить ненужный хлам с телефона', text: ''},
-    {id: 5, title: 'Прочитать что такое {object}', text: ''},
-    {id: 5, title: 'Посмотреть видео про {object}', text: ''},
-    {id: 5, title: 'Пройти тест по {object}', text: ''},
-]
+const { GoogleSpreadsheet } = require('google-spreadsheet');
+
+let doc = new GoogleSpreadsheet('15OS4jVE_FvyVH3FOu-WtvtApahoeX24x-fd7o0R2sus');
+
+let cards = []
+
+let readTable = async function () {
+
+    cards = []
+
+    await doc.useApiKey('AIzaSyBApsCS7uiGyec_Tj0Qh19Y1hbmgQn12CE');
+    await doc.loadInfo();
+    const sheet = doc.sheetsByIndex[0];
+    const rows = await sheet.getRows();
+
+    for (let i = 0; i < sheet.rowCount; i++) {
+        if (rows[i] && rows[i]._rawData[1]) {
+            let card = {
+                id: i,
+                title: rows[i]._rawData[1],
+                text: rows[i]._rawData[2]
+            }
+            cards.push(card)
+            console.log(card)
+        }
+    }
+}
+
+readTable().then()
 
 app.get('/cards', async function (request, response) {
-    response.json(actions);
+    response.json(cards);
+});
+
+app.get('/read', async function (request, response) {
+    readTable().then()
+    response.json();
 });
