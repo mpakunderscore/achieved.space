@@ -95,8 +95,12 @@ main {
 
 #skip span {
     width: 100%;
-    text-align: end;
+    /*text-align: end;*/
     align-self: flex-end;
+}
+
+#skip span:last-child {
+    text-align: end;
 }
 
 #card {
