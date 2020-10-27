@@ -1,16 +1,16 @@
 function done() {
     console.log('done')
-    getNextCard()
+    // getNextCard()
 }
 
 function like() {
     console.log('like')
-    getNextCard()
+    // getNextCard()
 }
 
 function dislike() {
     console.log('dislike')
-    getNextCard()
+    // getNextCard()
 }
 
 function next(e) {
@@ -77,8 +77,13 @@ get('cards').then(cardsArray => {
     console.log(cards)
 })
 
+let cardElement = document.getElementById('card')
 let title = document.getElementById('title')
 let text = document.getElementById('text')
+
+let likeMark = document.getElementById('like-mark')
+let doneMark = document.getElementById('done-mark')
+let dislikeMark = document.getElementById('dislike-mark')
 
 let index = 0;
 
@@ -112,11 +117,12 @@ function renderCard(card) {
         text.innerText = card.text
     else
         text.innerText = ''
+
+    likeMark.style.display = 'none'
+    cardElement.style.backgroundColor = 'white'
 }
 
 window.onload = function () {
-
-    let cardElement = document.getElementById('card')
 
     // console.log(cardElement.style.width)
 
@@ -126,7 +132,9 @@ window.onload = function () {
     cardElement.style.top = paddingTop + 'px'
 
     let touchStartLocation
+    let left = false
     let right = false
+    let top = false
     let bottom = false
 
     cardElement.addEventListener('touchstart', function (e) {
@@ -137,9 +145,6 @@ window.onload = function () {
         // topPadding = cardElement.style.top.slice(0, -2) * 1
 
         cardElement.classList.add('hold')
-
-        right = false
-        bottom = false
     })
 
     cardElement.addEventListener('touchmove', function (e) {
@@ -149,27 +154,55 @@ window.onload = function () {
 
         // console.log(cardElement.style.left.slice(0, -2))
 
+
         let difX = touchLocation.pageX - touchStartLocation.pageX
-        if (paddingLeft + difX >= 0)
+        if (paddingLeft + difX >= 0) {
+            left = false
             cardElement.style.left = paddingLeft + difX + 'px';
-        else
+        } else {
+            left = true
             cardElement.style.left = '0px';
+        }
+
         let difY = touchLocation.pageY - touchStartLocation.pageY
-        if (paddingTop + difY >= 0)
+        if (paddingTop + difY >= 0) {
+            top = false
             cardElement.style.top = paddingTop + difY + 'px';
-        else
+        } else {
+            top = true
             cardElement.style.top = '0px';
+        }
 
 
-        if (paddingLeft + difX > 2 * paddingLeft) {
+        if (paddingLeft + difX >= 2 * paddingLeft) {
             right = true
             cardElement.style.left = 2 * paddingLeft + 'px';
+        } else {
+            right = false
         }
 
-        if (paddingTop + difY > 2 * paddingTop) {
+        if (paddingTop + difY >= 2 * paddingTop) {
             bottom = true
             cardElement.style.top = 2 * paddingTop + 'px';
+        } else {
+            bottom = false
         }
+
+        if (top && right) {
+            console.log('LIKE')
+            likeMark.style.display = 'flex'
+            cardElement.style.backgroundColor = 'rgb(188, 215, 208)'
+        }
+
+        if (bottom && left) {
+            console.log('DISLIKE')
+        }
+
+        if (bottom && left) {
+            console.log('DISLIKE')
+        }
+
+        // console.log(top, right, bottom, left)
     })
 
     function setCardCenter() {

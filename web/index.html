@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <title>Actions</title>
 
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;1,300&family=Roboto+Slab:wght@300;400&family=Source+Sans+Pro:wght@300;400&display=swap" rel="stylesheet">
 
     <link rel="shortcut icon"
           type="image/x-icon"
@@ -14,7 +14,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="apple-mobile-web-app-capable" content="yes">
 
-    <link rel="stylesheet" type="text/css" href="css/index.css?v=2">
+    <link rel="stylesheet" type="text/css" href="css/index.css?v=3">
     <link rel="stylesheet" type="text/css" href="css/media.css">
 
 </head>
@@ -26,16 +26,21 @@
         <div id="done">DONE</div>
         <div id="like">LIKE</div>
         <div id="dislike"><span>DISLIKE</span></div>
-        <div id="skip"><span id="back">↺</span><span id="next">NEXT</span></div>
+        <div id="skip"><span id="back">back</span><span id="next">NEXT</span></div>
     </div>
     <div id="card" ondblclick="toggleFullScreen()">
         <div id="title">Карты действий</div>
         <div id="text">Если не знаешь что поделать. Листай, карт много, можно посмотреть те что понравились.<br/><br/>Двойной тап.</div>
+        <div id="marks">
+            <div id="done-mark">DONE</div>
+            <div id="like-mark">LIKE</div>
+            <div id="dislike-mark">DISLIKE</div>
+        </div>
     </div>
 </main>
 
 </body>
 
-<script src="js/index.js?v=7"></script>
+<script src="js/index.js?v=8"></script>
 
 </html>
