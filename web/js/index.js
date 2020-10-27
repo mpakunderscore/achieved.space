@@ -37,6 +37,9 @@ document.getElementById('back').addEventListener('touchend', back, false);
 // document.getElementById('back').addEventListener('click', back, false);
 
 function toggleFullScreen() {
+
+    console.log('fullscreen')
+
     if (!document.fullscreenElement) {
         document.documentElement.requestFullscreen().then();
     } else {
@@ -101,32 +104,36 @@ function renderCard(card) {
 }
 
 window.onload = function() {
-    // find the element that you want to drag.
-    // var card = document.getElementById('card');
 
-    /* listen to the touchmove event,
-    every time it fires, grab the location
-    of touch and assign it to box */
+    let touchStartLocation
+
+    cardElement.addEventListener('touchstart', function(e) {
+        // grab the location of touch
+        touchStartLocation = e.targetTouches[0];
+    })
 
     cardElement.addEventListener('touchmove', function(e) {
+
         // grab the location of touch
-        var touchLocation = e.targetTouches[0];
+        let touchLocation = e.targetTouches[0];
 
         // assign box new coordinates based on the touch.
-        cardElement.style.left = touchLocation.pageX + 'px';
-        cardElement.style.top = touchLocation.pageY + 'px';
+        if (touchLocation.pageX > 0 && touchLocation.pageY > 0) {
+            cardElement.style.left = 'calc(10% + ' + (touchLocation.pageX - touchStartLocation.pageX  + 'px') + ')';
+            cardElement.style.top = 'calc(10% + ' + (touchLocation.pageY - touchStartLocation.pageY + 'px') + ')';
+        }
     })
 
 }
 
-/* record the position of the touch
-  when released using touchend event.
-  This will be the drop position. */
-
-cardElement.addEventListener('touchend', function(e) {
-    // current box position.
-    var x = parseInt(cardElement.style.left);
-    var y = parseInt(cardElement.style.top);
-
-    console.log(x + '/' + y)
-})
+// /* record the position of the touch
+//   when released using touchend event.
+//   This will be the drop position. */
+//
+// cardElement.addEventListener('touchend', function(e) {
+//     // current box position.
+//     var x = parseInt(cardElement.style.left);
+//     var y = parseInt(cardElement.style.top);
+//
+//     console.log(x + '/' + y)
+// })
