@@ -27,8 +27,13 @@ document.getElementById('done').addEventListener('touchend', done, false);
 document.getElementById('like').addEventListener('touchend', like, false);
 document.getElementById('dislike').addEventListener('touchend', dislike, false);
 document.getElementById('skip').addEventListener('touchend', skip, false);
-
 document.getElementById('back').addEventListener('touchend', back, false);
+
+document.getElementById('done').addEventListener('click', done, false);
+document.getElementById('like').addEventListener('click', like, false);
+document.getElementById('dislike').addEventListener('click', dislike, false);
+document.getElementById('skip').addEventListener('click', skip, false);
+document.getElementById('back').addEventListener('click', back, false);
 
 function toggleFullScreen() {
     if (!document.fullscreenElement) {
@@ -93,3 +98,34 @@ function renderCard(card) {
     else
         text.innerText = ''
 }
+
+window.onload = function() {
+    // find the element that you want to drag.
+    // var card = document.getElementById('card');
+
+    /* listen to the touchmove event,
+    every time it fires, grab the location
+    of touch and assign it to box */
+
+    cardElement.addEventListener('touchmove', function(e) {
+        // grab the location of touch
+        var touchLocation = e.targetTouches[0];
+
+        // assign box new coordinates based on the touch.
+        cardElement.style.left = touchLocation.pageX + 'px';
+        cardElement.style.top = touchLocation.pageY + 'px';
+    })
+
+}
+
+/* record the position of the touch
+  when released using touchend event.
+  This will be the drop position. */
+
+cardElement.addEventListener('touchend', function(e) {
+    // current box position.
+    var x = parseInt(cardElement.style.left);
+    var y = parseInt(cardElement.style.top);
+
+    console.log(x + '/' + y)
+})
