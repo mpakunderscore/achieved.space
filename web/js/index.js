@@ -13,21 +13,22 @@ function dislike() {
     getNextCard()
 }
 
-function skip() {
-    console.log('skip')
-    getNextCard()
+function next(e) {
+    if (e.target.id === 'skip' || e.target.id === 'next') {
+        getNextCard()
+    } else if (e.target.id === 'back')
+        getPrevCard()
 }
 
 function back() {
     console.log('back')
-    getPrevCard()
 }
 
 document.getElementById('done').addEventListener('touchend', done, false);
 document.getElementById('like').addEventListener('touchend', like, false);
 document.getElementById('dislike').addEventListener('touchend', dislike, false);
-document.getElementById('next').addEventListener('touchend', skip, false);
-document.getElementById('back').addEventListener('touchend', back, false);
+document.getElementById('skip').addEventListener('touchend', next, false);
+// document.getElementById('back').addEventListener('touchend', back, false);
 
 // Desktop website
 // document.getElementById('done').addEventListener('click', done, false);
@@ -65,7 +66,6 @@ get('cards').then(cardsArray => {
     console.log(cards)
 })
 
-let cardElement = document.getElementById('card')
 let title = document.getElementById('title')
 let text = document.getElementById('text')
 
@@ -105,11 +105,24 @@ function renderCard(card) {
 
 window.onload = function() {
 
+    let cardElement = document.getElementById('card')
+
+
+
+    // cardElement.style.left = '10%'
+    // cardElement.style.top = '10%'
+
+    console.log(cardElement.style.left)
+
     let touchStartLocation
+    let leftPadding = 0
+    let topPadding = 0
 
     cardElement.addEventListener('touchstart', function(e) {
         // grab the location of touch
         touchStartLocation = e.targetTouches[0];
+        leftPadding = cardElement.style.left.slice(0, -2) * 1
+        topPadding = cardElement.style.top.slice(0, -2) * 1
     })
 
     cardElement.addEventListener('touchmove', function(e) {
@@ -117,13 +130,15 @@ window.onload = function() {
         // grab the location of touch
         let touchLocation = e.targetTouches[0];
 
-        // assign box new coordinates based on the touch.
-        if (touchLocation.pageX > 0 && touchLocation.pageY > 0) {
-            cardElement.style.left = 'calc(10% + ' + (touchLocation.pageX - touchStartLocation.pageX  + 'px') + ')';
-            cardElement.style.top = 'calc(10% + ' + (touchLocation.pageY - touchStartLocation.pageY + 'px') + ')';
-        }
-    })
+        console.log(cardElement.style.left.slice(0, -2))
 
+        let difX = touchLocation.pageX - touchStartLocation.pageX
+        if (leftPadding + difX >= 0)
+            cardElement.style.left = leftPadding + difX + 'px';
+        let difY = touchLocation.pageY - touchStartLocation.pageY
+        if (topPadding + difY >= 0)
+            cardElement.style.top = topPadding + difY + 'px';
+    })
 }
 
 // /* record the position of the touch
@@ -132,8 +147,8 @@ window.onload = function() {
 //
 // cardElement.addEventListener('touchend', function(e) {
 //     // current box position.
-//     var x = parseInt(cardElement.style.left);
-//     var y = parseInt(cardElement.style.top);
+//     // cardElement.style.left = '10%';
+//     // cardElement.style.top = '10%';
 //
-//     console.log(x + '/' + y)
+//     // console.log(x + '/' + y)
 // })
