@@ -120,6 +120,7 @@ window.onload = function() {
 
     cardElement.addEventListener('touchstart', function(e) {
         // grab the location of touch
+        cardElement.style.transition = 'none';
         touchStartLocation = e.targetTouches[0];
         leftPadding = cardElement.style.left.slice(0, -2) * 1
         topPadding = cardElement.style.top.slice(0, -2) * 1
@@ -139,16 +140,18 @@ window.onload = function() {
         if (topPadding + difY >= 0)
             cardElement.style.top = topPadding + difY + 'px';
     })
+
+    cardElement.addEventListener('touchend', function(e) {
+    // current box position.
+    cardElement.style.transition = '0.5s left, 0.5s top';
+    cardElement.style.left = '0';
+    cardElement.style.top = '0';
+
+    //console.log(x + '/' + y)
+})
 }
 
 // /* record the position of the touch
 //   when released using touchend event.
 //   This will be the drop position. */
 //
-// cardElement.addEventListener('touchend', function(e) {
-//     // current box position.
-//     // cardElement.style.left = '10%';
-//     // cardElement.style.top = '10%';
-//
-//     // console.log(x + '/' + y)
-// })
