@@ -20,20 +20,21 @@ function skip() {
 
 function back() {
     console.log('back')
-    // getPrevCard()
+    getPrevCard()
 }
 
 document.getElementById('done').addEventListener('touchend', done, false);
 document.getElementById('like').addEventListener('touchend', like, false);
 document.getElementById('dislike').addEventListener('touchend', dislike, false);
-document.getElementById('skip').addEventListener('touchend', skip, false);
+document.getElementById('next').addEventListener('touchend', skip, false);
 document.getElementById('back').addEventListener('touchend', back, false);
 
-document.getElementById('done').addEventListener('click', done, false);
-document.getElementById('like').addEventListener('click', like, false);
-document.getElementById('dislike').addEventListener('click', dislike, false);
-document.getElementById('skip').addEventListener('click', skip, false);
-document.getElementById('back').addEventListener('click', back, false);
+// Desktop website
+// document.getElementById('done').addEventListener('click', done, false);
+// document.getElementById('like').addEventListener('click', like, false);
+// document.getElementById('dislike').addEventListener('click', dislike, false);
+// document.getElementById('next').addEventListener('click', skip, false);
+// document.getElementById('back').addEventListener('click', back, false);
 
 function toggleFullScreen() {
     if (!document.fullscreenElement) {
@@ -69,24 +70,24 @@ let index = 0;
 
 function getNextCard() {
 
-    let card = cards[index];
+
     index = index + 1;
     if (index >= cards.length) {
         index = 0
     }
-
+    let card = cards[index];
     renderCard(card)
 }
 
-// function getPrevCard() {
-//
-//     if (index-- < 0) {
-//         index = cards.length - 1
-//     }
-//     let card = cards[index];
-//
-//     renderCard(card)
-// }
+function getPrevCard() {
+
+    index = index - 1;
+    if (index < 0) {
+        index = cards.length - 1
+    }
+    let card = cards[index];
+    renderCard(card)
+}
 
 function renderCard(card) {
 
