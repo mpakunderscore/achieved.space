@@ -13,7 +13,7 @@ html, body {
     letter-spacing: 4px;
 
     --color-red: #bb4430;
-    --color-green: #47E5BC;
+    --color-green: #47e5bc;
     --color-blue: #028090;
     --color-no: #393E41;
 
@@ -30,13 +30,13 @@ body {
     /*top: 0;*/
     height: 100%;
 
-    color: white;
+    /*color: white;*/
     background-color: ghostwhite;
 }
 
 a {
     text-decoration: none;
-    color: black;
+    /*color: black;*/
 }
 
 a:hover {
@@ -138,7 +138,7 @@ main {
     text-align: center;
 
     line-height: normal;
-    letter-spacing: normal;
+    letter-spacing: 1px;
 
     color: #292929;
     background-color: ghostwhite;
@@ -173,21 +173,23 @@ main {
 #card #marks div {
     display: none;
     position: absolute;
+    opacity: 0.5;
 }
 
 #card #like-mark {
     top: 20px;
     right: 20px;
-    color: #c6d9c9;
+    color: var(--color-green);
 }
 
 #card #done-mark {
     top: 20px;
     left: 20px;
+    color: var(--color-blue);
 }
 
 #card #dislike-mark {
     bottom: 20px;
     left: 20px;
-    color: #1d1d1d;
+    color: var(--color-red);
 }

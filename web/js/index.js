@@ -193,12 +193,12 @@ window.onload = function () {
         if (top && right) {
             console.log('LIKE')
             likeMark.style.display = 'flex'
-            cardElement.style.backgroundColor = 'rgb(188, 215, 208)'
+            // cardElement.style.backgroundColor = 'var(--color-green)'
         }
 
         if (top && left) {
             doneMark.style.display = 'flex'
-            cardElement.style.backgroundColor = '#556e72'
+            // cardElement.style.backgroundColor = '#556e72'
             console.log('DONE')
         }
 
