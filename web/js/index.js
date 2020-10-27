@@ -136,9 +136,13 @@ window.onload = function() {
         let difX = touchLocation.pageX - touchStartLocation.pageX
         if (leftPadding + difX >= 0)
             cardElement.style.left = leftPadding + difX + 'px';
+        else
+            cardElement.style.left = '0px';
         let difY = touchLocation.pageY - touchStartLocation.pageY
         if (topPadding + difY >= 0)
             cardElement.style.top = topPadding + difY + 'px';
+        else
+            cardElement.style.top = '0px';
     })
 
     cardElement.addEventListener('touchend', function(e) {
