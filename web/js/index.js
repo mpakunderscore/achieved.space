@@ -119,7 +119,9 @@ function renderCard(card) {
         text.innerText = ''
 
     likeMark.style.display = 'none'
-    cardElement.style.backgroundColor = 'white'
+    doneMark.style.display = 'none'
+    dislikeMark.style.display = 'none'
+    cardElement.style.backgroundColor = 'ghostwhite'
 }
 
 window.onload = function () {
@@ -194,11 +196,14 @@ window.onload = function () {
             cardElement.style.backgroundColor = 'rgb(188, 215, 208)'
         }
 
-        if (bottom && left) {
-            console.log('DISLIKE')
+        if (top && left) {
+            doneMark.style.display = 'flex'
+            cardElement.style.backgroundColor = '#556e72'
+            console.log('DONE')
         }
 
         if (bottom && left) {
+            dislikeMark.style.display = 'flex'
             console.log('DISLIKE')
         }
 
