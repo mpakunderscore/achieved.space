@@ -107,23 +107,23 @@ window.onload = function() {
 
     let cardElement = document.getElementById('card')
 
+    // console.log(cardElement.style.width)
 
-
-    // cardElement.style.left = '10%'
-    // cardElement.style.top = '10%'
-
-    console.log(cardElement.style.left)
+    let paddingLeft = window.screen.width * 0.1
+    let paddingTop = window.screen.height * 0.1
+    cardElement.style.left = paddingLeft + 'px'
+    cardElement.style.top = paddingTop + 'px'
 
     let touchStartLocation
-    let leftPadding = 0
-    let topPadding = 0
+    // let leftPadding = 0
+    // let topPadding = 0
 
     cardElement.addEventListener('touchstart', function(e) {
         // grab the location of touch
         cardElement.style.transition = 'none';
         touchStartLocation = e.targetTouches[0];
-        leftPadding = cardElement.style.left.slice(0, -2) * 1
-        topPadding = cardElement.style.top.slice(0, -2) * 1
+        // leftPadding = cardElement.style.left.slice(0, -2) * 1
+        // topPadding = cardElement.style.top.slice(0, -2) * 1
     })
 
     cardElement.addEventListener('touchmove', function(e) {
@@ -134,22 +134,30 @@ window.onload = function() {
         console.log(cardElement.style.left.slice(0, -2))
 
         let difX = touchLocation.pageX - touchStartLocation.pageX
-        if (leftPadding + difX >= 0)
-            cardElement.style.left = leftPadding + difX + 'px';
+        if (paddingLeft + difX >= 0)
+            cardElement.style.left = paddingLeft + difX + 'px';
         else
             cardElement.style.left = '0px';
         let difY = touchLocation.pageY - touchStartLocation.pageY
-        if (topPadding + difY >= 0)
-            cardElement.style.top = topPadding + difY + 'px';
+        if (paddingTop + difY >= 0)
+            cardElement.style.top = paddingTop + difY + 'px';
         else
             cardElement.style.top = '0px';
+
+        if (paddingLeft + difX > 2 * paddingLeft) {
+            cardElement.style.left = 2 * paddingLeft + 'px';
+        }
+
+        if (paddingTop + difY > 2 * paddingTop) {
+            cardElement.style.top = 2 * paddingTop + 'px';
+        }
     })
 
     cardElement.addEventListener('touchend', function(e) {
     // current box position.
     cardElement.style.transition = '0.5s left, 0.5s top';
-    cardElement.style.left = '0';
-    cardElement.style.top = '0';
+    cardElement.style.left = paddingLeft + 'px';
+    cardElement.style.top = paddingTop + 'px';
 
     //console.log(x + '/' + y)
 })
