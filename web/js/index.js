@@ -94,7 +94,7 @@ function getPrevCard() {
 
 function renderCard(card) {
 
-    console.log(index)
+    // console.log(index)
 
     title.innerText = card.title
     if (card.text)
@@ -103,7 +103,7 @@ function renderCard(card) {
         text.innerText = ''
 }
 
-window.onload = function() {
+window.onload = function () {
 
     let cardElement = document.getElementById('card')
 
@@ -115,23 +115,28 @@ window.onload = function() {
     cardElement.style.top = paddingTop + 'px'
 
     let touchStartLocation
-    // let leftPadding = 0
-    // let topPadding = 0
+    let right = false
+    let bottom = false
 
-    cardElement.addEventListener('touchstart', function(e) {
+    cardElement.addEventListener('touchstart', function (e) {
         // grab the location of touch
         cardElement.style.transition = 'none';
         touchStartLocation = e.targetTouches[0];
         // leftPadding = cardElement.style.left.slice(0, -2) * 1
         // topPadding = cardElement.style.top.slice(0, -2) * 1
+
+        cardElement.classList.add('hold')
+
+        right = false
+        bottom = false
     })
 
-    cardElement.addEventListener('touchmove', function(e) {
+    cardElement.addEventListener('touchmove', function (e) {
 
         // grab the location of touch
         let touchLocation = e.targetTouches[0];
 
-        console.log(cardElement.style.left.slice(0, -2))
+        // console.log(cardElement.style.left.slice(0, -2))
 
         let difX = touchLocation.pageX - touchStartLocation.pageX
         if (paddingLeft + difX >= 0)
@@ -144,25 +149,33 @@ window.onload = function() {
         else
             cardElement.style.top = '0px';
 
+
         if (paddingLeft + difX > 2 * paddingLeft) {
+            right = true
             cardElement.style.left = 2 * paddingLeft + 'px';
         }
 
         if (paddingTop + difY > 2 * paddingTop) {
+            bottom = true
             cardElement.style.top = 2 * paddingTop + 'px';
         }
     })
 
-    cardElement.addEventListener('touchend', function(e) {
-    // current box position.
-    cardElement.style.transition = '0.5s left, 0.5s top';
-    cardElement.style.left = paddingLeft + 'px';
-    cardElement.style.top = paddingTop + 'px';
+    function setCardCenter() {
+        cardElement.style.transition = '0.5s left, 0.5s top';
+        cardElement.style.left = paddingLeft + 'px';
+        cardElement.style.top = paddingTop + 'px';
+    }
 
-    //console.log(x + '/' + y)
-})
+    cardElement.addEventListener('touchend', function (e) {
+        setCardCenter()
+        if (right && bottom) {
+            getNextCard()
+        }
+
+        cardElement.classList.remove('hold')
+    })
 }
-
 // /* record the position of the touch
 //   when released using touchend event.
 //   This will be the drop position. */

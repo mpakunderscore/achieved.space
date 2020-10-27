@@ -106,6 +106,8 @@ main {
 
 #skip #back {
     z-index: 2;
+    font-size: 40px;
+    font-weight: 300;
     /*background-color: red;*/
 }
 
@@ -116,8 +118,8 @@ main {
 
     /*right: 10%;*/
     /*bottom: 10%;*/
-    /*top: 10%;*/
-    /*left: 10%;*/
+    top: 10%;
+    left: 10%;
     /*left: 100px;*/
     /*top: 100px;*/
 
@@ -135,7 +137,6 @@ main {
     letter-spacing: normal;
 
     color: black;
-    /*transition: 1s color;*/
     background-color: ghostwhite;
     border-radius: 10px;
 
@@ -143,6 +144,11 @@ main {
 
     /*pointer-events: none;*/
     /*transition: 0.1s left, 1s top;*/
+}
+
+#card.hold {
+    transition: 1s box-shadow;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 10px 10px rgba(0, 0, 0, 0.04);
 }
 
 #card #title {
