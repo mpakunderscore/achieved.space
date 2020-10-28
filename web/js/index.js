@@ -223,6 +223,11 @@ window.onload = function () {
         }
 
         cardElement.classList.remove('hold')
+
+        left = false
+        right = false
+        top = false
+        bottom = false
     })
 }
 // /* record the position of the touch
