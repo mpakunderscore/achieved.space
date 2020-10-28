@@ -30,7 +30,7 @@ body {
     /*top: 0;*/
     height: 100%;
 
-    /*color: white;*/
+    /*color: black;*/
     background-color: ghostwhite;
 }
 
@@ -60,6 +60,7 @@ main {
     display: grid;
     grid-template-columns: 50% 50%;
 
+    color: white;
     opacity: 0.5;
 }
 
