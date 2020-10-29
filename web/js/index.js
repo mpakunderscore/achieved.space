@@ -109,11 +109,15 @@ function getPrevCard() {
 }
 
 let likeCount = 0
+let likeCard = false
 let doneCount = 0
+let doneCard = false
 
 function renderCard(card) {
 
     // console.log(index)
+    likeCard = false
+    doneCard = false
 
     title.innerText = card.title
     if (card.text)
@@ -196,14 +200,18 @@ window.onload = function () {
         if (top && right) {
             console.log('LIKE')
             likeMark.style.display = 'flex'
-            document.getElementById('like-count').innerText = likeCount++
+            if (!likeCard)
+                document.getElementById('like-count').innerText = likeCount++
+            likeCard = true
             // cardElement.style.backgroundColor = 'var(--color-green)'
         }
 
         if (top && left) {
-            doneMark.style.display = 'flex'
-            document.getElementById('done-count').innerText = doneCount++
             console.log('DONE')
+            doneMark.style.display = 'flex'
+            if (!doneCard)
+                document.getElementById('done-count').innerText = doneCount++
+            doneCard = true
         }
 
         if (bottom && left) {
