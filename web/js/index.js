@@ -201,7 +201,7 @@ window.onload = function () {
             // console.log('LIKE')
             if (!likeCard) {
                 likeMark.style.display = 'flex'
-                document.getElementById('like-count').innerText = likeCount++
+                document.getElementById('like-count').innerText = ++likeCount
             }
             likeCard = true
             // cardElement.style.backgroundColor = 'var(--color-green)'
@@ -211,7 +211,7 @@ window.onload = function () {
             // console.log('DONE')
             if (!doneCard) {
                 doneMark.style.display = 'flex'
-                document.getElementById('done-count').innerText = doneCount++
+                document.getElementById('done-count').innerText = ++doneCount
             }
             doneCard = true
         }
