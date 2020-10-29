@@ -70,6 +70,8 @@ main {
 
 #like {
     text-align: end;
+    display: flex;
+    justify-content: space-between;
     background-color: var(--color-green);
 }
 
@@ -78,6 +80,8 @@ main {
 
 #done {
     background-color: var(--color-blue);
+    display: flex;
+    justify-content: space-between;
     /*text-align: right;*/
 }
 
@@ -112,6 +116,20 @@ main {
     font-size: 16px;
     font-weight: 300;
     /*background-color: red;*/
+}
+
+#done-count {
+    font-size: 16px;
+    font-weight: 300;
+    /*background-color: rebeccapurple;*/
+}
+
+#like-count {
+    font-size: 16px;
+    font-weight: 300;
+    /*background-color: rebeccapurple;*/
+    /*width: 100%;*/
+    /*text-align: left;*/
 }
 
 #card {

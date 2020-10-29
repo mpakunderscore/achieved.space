@@ -108,6 +108,9 @@ function getPrevCard() {
     renderCard(card)
 }
 
+let likeCount = 0
+let doneCount = 0
+
 function renderCard(card) {
 
     // console.log(index)
@@ -193,12 +196,13 @@ window.onload = function () {
         if (top && right) {
             console.log('LIKE')
             likeMark.style.display = 'flex'
+            document.getElementById('like-count').innerText = likeCount++
             // cardElement.style.backgroundColor = 'var(--color-green)'
         }
 
         if (top && left) {
             doneMark.style.display = 'flex'
-            // cardElement.style.backgroundColor = '#556e72'
+            document.getElementById('done-count').innerText = doneCount++
             console.log('DONE')
         }
 
