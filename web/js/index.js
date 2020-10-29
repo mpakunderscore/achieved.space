@@ -198,25 +198,27 @@ window.onload = function () {
         }
 
         if (top && right) {
-            console.log('LIKE')
-            likeMark.style.display = 'flex'
-            if (!likeCard)
+            // console.log('LIKE')
+            if (!likeCard) {
+                likeMark.style.display = 'flex'
                 document.getElementById('like-count').innerText = likeCount++
+            }
             likeCard = true
             // cardElement.style.backgroundColor = 'var(--color-green)'
         }
 
         if (top && left) {
-            console.log('DONE')
-            doneMark.style.display = 'flex'
-            if (!doneCard)
+            // console.log('DONE')
+            if (!doneCard) {
+                doneMark.style.display = 'flex'
                 document.getElementById('done-count').innerText = doneCount++
+            }
             doneCard = true
         }
 
         if (bottom && left) {
             dislikeMark.style.display = 'flex'
-            console.log('DISLIKE')
+            // console.log('DISLIKE')
         }
 
         // console.log(top, right, bottom, left)
