@@ -137,8 +137,8 @@ window.onload = function () {
 
     let paddingLeft = window.screen.width * 0.1
     let paddingTop = window.screen.height * 0.1
-    cardElement.style.left = paddingLeft + 'px'
-    cardElement.style.top = paddingTop + 'px'
+    // cardElement.style.left = paddingLeft + 'px'
+    // cardElement.style.top = paddingTop + 'px'
 
     let touchStartLocation
     let left = false
