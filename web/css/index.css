@@ -2,9 +2,10 @@ html, body {
     margin: 0;
     padding: 0;
 
-    font-family: 'Open Sans', sans-serif;
+    /*font-family: 'Open Sans', sans-serif;*/
     /*font-family: 'Roboto Slab', serif;*/
     /*font-family: 'Source Sans Pro', sans-serif;*/
+    font-family: 'Raleway', sans-serif;
     font-weight: 400;
     font-size: 26px;
 
@@ -12,10 +13,10 @@ html, body {
     line-height: 0.8;
     letter-spacing: 4px;
 
-    --color-red: #bb4430;
-    --color-green: #47e5bc;
-    --color-blue: #028090;
-    --color-no: #393E41;
+    --color-red: #ff634c;
+    --color-green: #39f6c6;
+    --color-blue: #059eb1;
+    --color-no: #404345;
 
     /*--color-green: rgba(234, 149, 149, 0);*/
 
@@ -62,7 +63,7 @@ main {
     grid-template-rows: 50% 50%;
 
     color: white;
-    opacity: 0.5;
+    opacity: 0.8;
 }
 
 #buttons div {
@@ -135,7 +136,7 @@ main {
 
 #card {
     /*font-family: 'Source Sans Pro', sans-serif;*/
-    font-family: 'Raleway', sans-serif;
+    /*font-family: 'Raleway', sans-serif;*/
 
     position: fixed;
     width: 80%;
@@ -170,6 +171,7 @@ main {
 
     /*pointer-events: none;*/
     /*transition: 0.1s left, 1s top;*/
+    overflow: hidden;
 }
 
 #card.hold {
@@ -194,7 +196,7 @@ main {
 #card #marks div {
     display: none;
     position: absolute;
-    opacity: 0.5;
+    /*opacity: 0.5;*/
 }
 
 #card #like-mark {
@@ -213,4 +215,11 @@ main {
     bottom: 20px;
     left: 20px;
     color: var(--color-red);
+}
+
+#card #info {
+    /*position: absolute;*/
+    /*bottom: 20px;*/
+    padding-top: 20px;
+    font-size: 14px;
 }

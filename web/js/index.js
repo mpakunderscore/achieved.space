@@ -80,6 +80,7 @@ get('cards').then(cardsArray => {
 let cardElement = document.getElementById('card')
 let title = document.getElementById('title')
 let text = document.getElementById('text')
+let info = document.getElementById('info')
 
 let likeMark = document.getElementById('like-mark')
 let doneMark = document.getElementById('done-mark')
@@ -119,16 +120,24 @@ function renderCard(card) {
     likeCard = false
     doneCard = false
 
+    if (!card.text)
+        card.text = ''
+
+    if (!card.categories)
+        card.categories = '?'
+
+    if (!card.level)
+        card.level = '?'
+
     title.innerText = card.title
-    if (card.text)
-        text.innerText = card.text
-    else
-        text.innerText = ''
+    text.innerText = card.text
+    info.innerText = 'ID: ' + card.id + ' / Categories: ' + card.categories + ' / Level: ' + card.level
 
     likeMark.style.display = 'none'
     doneMark.style.display = 'none'
     dislikeMark.style.display = 'none'
     cardElement.style.backgroundColor = 'ghostwhite'
+
 }
 
 window.onload = function () {
@@ -160,9 +169,6 @@ window.onload = function () {
 
         // grab the location of touch
         let touchLocation = e.targetTouches[0];
-
-        // console.log(cardElement.style.left.slice(0, -2))
-
 
         let difX = touchLocation.pageX - touchStartLocation.pageX
         if (paddingLeft + difX >= 0) {
@@ -231,7 +237,9 @@ window.onload = function () {
     }
 
     cardElement.addEventListener('touchend', function (e) {
+
         setCardCenter()
+
         if (right && bottom) {
             getNextCard()
         }
