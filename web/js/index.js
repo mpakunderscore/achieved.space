@@ -130,8 +130,8 @@ function renderCard(card) {
         card.level = '?'
 
     title.innerText = card.title
-    text.innerText = card.text
-    info.innerText = 'ID: ' + card.id + ' / Categories: ' + card.categories + ' / Level: ' + card.level
+    text.innerHTML = card.text
+    info.innerHTML = 'ID: ' + card.id + ' <br/>Categories: ' + card.categories + ' <br/>Level: ' + card.level
 
     likeMark.style.display = 'none'
     doneMark.style.display = 'none'

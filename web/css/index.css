@@ -172,6 +172,7 @@ main {
     /*pointer-events: none;*/
     /*transition: 0.1s left, 1s top;*/
     overflow: hidden;
+    opacity: 0.95;
 }
 
 #card.hold {
@@ -218,8 +219,10 @@ main {
 }
 
 #card #info {
-    /*position: absolute;*/
-    /*bottom: 20px;*/
+    position: absolute;
+    bottom: 100px;
+    left: 0;
+    right: 0;
     padding-top: 20px;
     font-size: 14px;
 }
