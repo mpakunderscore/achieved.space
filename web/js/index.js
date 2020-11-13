@@ -1,3 +1,19 @@
+let firstCardsIndex = 0;
+let firstCards = [
+    {
+        title: 'Это прототип',
+        text: 'Скоро будет полноценное приложение, сейчас лучше всего работает в FF'
+    },
+    {
+        title: 'У карточек есть категории и уровень сложности',
+        text: 'По категориям строятся рекомендации, сложные уровни открываются только после открытия нескольких простых'
+    },
+    {
+        title: 'Некоторые карточки можно выполнить только один раз',
+        text: 'Другие можно делать каждый день'
+    }
+]
+
 function done() {
     console.log('done')
     // getNextCard()
@@ -62,7 +78,7 @@ async function get(url) {
 }
 
 function shuffle(a) {
-    var j, x, i;
+    let j, x, i;
     for (i = a.length - 1; i > 0; i--) {
         j = Math.floor(Math.random() * (i + 1));
         x = a[i];
@@ -90,6 +106,11 @@ let index = 0;
 
 function getNextCard() {
 
+    if (firstCardsIndex < firstCards.length) {
+        renderCard(firstCards[firstCardsIndex])
+        firstCardsIndex++
+        return
+    }
 
     index = index + 1;
     if (index >= cards.length) {
@@ -122,6 +143,9 @@ function renderCard(card) {
 
     if (!card.text)
         card.text = ''
+
+    if (!card.id)
+        card.id = '?'
 
     if (!card.categories)
         card.categories = '?'
