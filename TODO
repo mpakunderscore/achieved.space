@@ -1,10 +1,13 @@
-1. Хочу взять на выполнение - избранное - список - туду - like
-2. Сделал - рассказать историю - прикрепить фотографию - done
-3. Не хочу делать - не нравится - дизлайк - dislike
-4. Пропустить - скип - skip
+1. Desktop version of app (fix click, other text)
+2. React Native App
+3. Connect database to store cards and analytics (like, dislike)
+
+4. Remember choice (done like dislike) and separate cards
+
+5. Templates for cards text (5 items)
+
+6. List of categories
 
 
 
-1. Ощущение свайпа карточки
-2. Кнопка назад
-3. Точки по углам
+
