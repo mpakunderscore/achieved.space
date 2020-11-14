@@ -81,6 +81,7 @@ main {
 }
 
 #done {
+    position: relative;
     background-color: var(--color-blue);
     display: flex;
     justify-content: space-between;

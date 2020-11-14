@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <title>Cards</title>
 
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;1,300&family=Roboto+Slab:wght@300;400&family=Source+Sans+Pro:wght@300;400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;1,300&family=Roboto+Slab:wght@300;400&family=Source+Sans+Pro:wght@300;400&display=swap"
+          rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400&display=swap" rel="stylesheet">
 
     <link rel="shortcut icon"
@@ -15,8 +16,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="apple-mobile-web-app-capable" content="yes">
 
-    <link rel="stylesheet" type="text/css" href="css/index.css?v=11">
+    <link rel="stylesheet" type="text/css" href="css/index.css?v=12">
     <link rel="stylesheet" type="text/css" href="css/media.css">
+    <link rel="stylesheet" type="text/css" href="css/design.css">
 
 </head>
 
@@ -24,14 +26,19 @@
 
 <main>
     <div id="buttons">
-        <div id="done"><span>DONE</span><span id="done-count">0</span></div>
+        <div id="done">
+            <div class="curve"></div>
+            <span>DONE</span><span id="done-count">0</span>
+        </div>
         <div id="like"><span id="like-count">0</span><span>LIKE</span></div>
         <div id="dislike"><span>DISLIKE</span></div>
         <div id="skip"><span id="back">back</span><span id="next">NEXT</span></div>
     </div>
     <div id="card" ondblclick="toggleFullScreen()">
-        <div id="title">Карты действий</div>
-        <div id="text">Если не знаешь что поделать. Листай, карт много, можно посмотреть те что понравились.<br/><br/>Двойной тап.</div>
+        <div id="title">Action cards</div>
+        <div id="text">Если не знаешь что поделать. Листай, карт много. Вот тут можно добавить новых.<br/><br/>Двойной
+            тап.
+        </div>
         <div id="marks">
             <div id="done-mark">DONE</div>
             <div id="like-mark">LIKE</div>
@@ -43,6 +50,6 @@
 
 </body>
 
-<script src="js/index.js?v=19"></script>
+<script src="js/index.js?v=20"></script>
 
 </html>

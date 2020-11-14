@@ -27,8 +27,8 @@ let readTable = async function () {
             let card = {
                 id: rows[i]._rawData[0],
                 categories: rows[i]._rawData[1],
-                title: rows[i]._rawData[2],
-                text: rows[i]._rawData[3],
+                title: updateLinks(rows[i]._rawData[2]),
+                text: updateLinks(rows[i]._rawData[3]),
                 level: rows[i]._rawData[4],
             }
             cards.push(card)
@@ -38,6 +38,13 @@ let readTable = async function () {
 }
 
 readTable().then()
+
+function updateLinks(text) {
+    if (!text)
+        return ''
+
+    return text.replace('google', '<a href="https://www.google.com/search?q=' + text + '">' + text + '</a>')
+}
 
 app.get('/cards', async function (request, response) {
     response.json(cards);

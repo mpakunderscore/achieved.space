@@ -1,0 +1,22 @@
+.curve {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: 50%;
+    /*background: linear-gradient(var(--color-blue), #0e7b88);*/
+    background-color: #07353b;
+    /*border-radius: 30% 70% 41% 59% / 19% 37% 63% 81%*/
+    /*animation: pulse 5s infinite;*/
+
+    animation: flicker 2s ease alternate infinite;
+}
+
+@keyframes flicker {
+    0% {
+        opacity: 0.8;
+    }
+    100% {
+        opacity: 0.2;
+    }
+}
