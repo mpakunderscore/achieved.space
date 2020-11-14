@@ -5,7 +5,7 @@ let firstCards = [
         text: 'Скоро будет полноценное приложение, сейчас лучше всего работает в FF'
     },
     {
-        title: 'Тестовые ссылки прототип',
+        title: 'Тестовые ссылки',
         text: '<a href="https://google.com" target="_blank">Google</a><br/><br/>' +
             '<a href="https://docs.google.com/spreadsheets/d/15OS4jVE_FvyVH3FOu-WtvtApahoeX24x-fd7o0R2sus/edit#gid=0" target="_blank">Document</a><br/><br/>' +
             '<a href="/achieved.space.apk" target="_blank">Ссылка на APK</a><br/>' + ''
