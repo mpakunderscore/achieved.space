@@ -9,7 +9,7 @@
     /*border-radius: 30% 70% 41% 59% / 19% 37% 63% 81%*/
     /*animation: pulse 5s infinite;*/
 
-    animation: flicker 2s ease alternate infinite;
+    /*animation: flicker 2s ease alternate infinite;*/
 }
 
 @keyframes flicker {
