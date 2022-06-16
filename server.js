@@ -9,7 +9,7 @@ server.listen(port);
 
 const { GoogleSpreadsheet } = require('google-spreadsheet');
 
-let doc = new GoogleSpreadsheet('15OS4jVE_FvyVH3FOu-WtvtApahoeX24x-fd7o0R2sus');
+let doc = new GoogleSpreadsheet('1PYv4TcWNXhKXuRFq_60owp1CO6VSBxkfsD0V_jaBwj0');
 
 let cards = []
 
@@ -26,10 +26,11 @@ let readTable = async function () {
         if (rows[i] && rows[i]._rawData[2]) {
             let card = {
                 id: rows[i]._rawData[0],
-                categories: rows[i]._rawData[1],
-                title: updateLinks(rows[i]._rawData[2]),
-                text: updateLinks(rows[i]._rawData[3]),
-                level: rows[i]._rawData[4],
+                title: updateLinks(rows[i]._rawData[1]),
+                text: updateLinks(rows[i]._rawData[2]),
+                categories: rows[i]._rawData[3],
+                emoji: rows[i]._rawData[4],
+                // level: rows[i]._rawData[4],
             }
             cards.push(card)
             console.log(card)

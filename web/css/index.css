@@ -13,9 +13,12 @@ html, body {
     line-height: 0.8;
     letter-spacing: 4px;
 
-    --color-red: #ff634c;
-    --color-green: #39f6c6;
-    --color-blue: #059eb1;
+    /*--color-red: #ff634c;*/
+    --color-red: rgb(227, 65, 69);
+    /*--color-green: #0fecb4;*/
+    --color-green: rgb(117, 241, 166);
+    /*--color-blue: #059eb1;*/
+    --color-blue: rgb(72, 115, 224);
     --color-no: #404345;
 
     /*--color-green: rgba(234, 149, 149, 0);*/
@@ -117,19 +120,20 @@ main {
     z-index: 2;
     padding-top: 42px;
     font-size: 16px;
-    font-weight: 300;
+    letter-spacing: 1px;
+    /*font-weight: 300;*/
     /*background-color: red;*/
 }
 
 #done-count {
     font-size: 16px;
-    font-weight: 300;
+    /*font-weight: 300;*/
     /*background-color: rebeccapurple;*/
 }
 
 #like-count {
     font-size: 16px;
-    font-weight: 300;
+    /*font-weight: 300;*/
     /*background-color: rebeccapurple;*/
     /*width: 100%;*/
     /*text-align: left;*/
@@ -150,8 +154,8 @@ main {
     /*left: 100px;*/
     /*top: 100px;*/
 
-    font-size: 20px;
-    font-weight: 300;
+    /*font-size: 20px;*/
+    /*font-weight: 300;*/
     padding: 20px;
     box-sizing: border-box;
 
@@ -166,6 +170,7 @@ main {
     color: #292929;
     background-color: ghostwhite;
     border-radius: 16px;
+    border: 1px solid white;
 
     box-shadow: 0 14px 28px rgba(0, 0, 0, 0.24), 0 10px 10px rgba(0, 0, 0, 0.20);
 
@@ -173,7 +178,7 @@ main {
     /*pointer-events: none;*/
     /*transition: 0.1s left, 1s top;*/
     overflow: hidden;
-    opacity: 0.95;
+    opacity: 0.98;
 }
 
 #card.hold {
@@ -181,10 +186,22 @@ main {
     box-shadow: none;
 }
 
+#card #emoji {
+    /*padding-bottom: 100px;*/
+    position: absolute;
+    top: 20%;
+    left: 0;
+    right: 0;
+}
+
 #card #title {
     font-size: 26px;
     font-weight: 400;
     padding-bottom: 20px;
+}
+
+#card #text {
+    font-size: 20px;
 }
 
 #card #marks div {
@@ -217,13 +234,16 @@ main {
     bottom: 20px;
     left: 20px;
     color: var(--color-red);
+
+    /*color: black;*/
 }
 
 #card #info {
     position: absolute;
-    bottom: 100px;
+    /*bottom: 100px;*/
+    bottom: 20%;
     left: 0;
     right: 0;
-    padding-top: 20px;
-    font-size: 14px;
+    /*padding-top: 20px;*/
+    font-size: 16px;
 }
