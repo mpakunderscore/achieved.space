@@ -4,8 +4,8 @@
   "description": "Cards of actions",
   "main": "server.js",
   "scripts": {
-    "build": "netlify-lambda build express",
-    "start": "nodemon server.js"
+    "start": "node server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",
