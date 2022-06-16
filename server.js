@@ -1,5 +1,6 @@
 let express = require('express');
 let path = require('path');
+const serverless = require('serverless-http');
 let app = express();
 
 app.use(express.static(path.join(__dirname, 'src')));
@@ -55,3 +56,5 @@ app.get('/read', async function (request, response) {
     readTable().then()
     response.json();
 });
+
+module.exports.handler = serverless(app);
