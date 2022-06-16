@@ -4,8 +4,8 @@
   "description": "Cards of actions",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "netlify-lambda build express",
+    "start": "nodemon server.js"
   },
   "author": "",
   "license": "ISC",
@@ -14,6 +14,7 @@
     "express": "^4.16.2",
     "google-spreadsheet": "^3.0.13",
     "http": "0.0.0",
+    "nodemon": "^1.19.2",
     "path": "^0.12.7",
     "socket.io": "^2.0.4"
   },
