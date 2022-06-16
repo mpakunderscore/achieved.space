@@ -2,9 +2,9 @@ let express = require('express');
 let path = require('path');
 let app = express();
 
-app.use(express.static(path.join(__dirname, 'web')));
+app.use(express.static(path.join(__dirname, 'src')));
 let server = require('http').Server(app);
-const port = process.env.PORT || 3030;
+const port = process.env.PORT || 3000;
 server.listen(port);
 
 const { GoogleSpreadsheet } = require('google-spreadsheet');
